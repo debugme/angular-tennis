@@ -1,0 +1,49 @@
+{
+  "name": "angular-tennis",
+  "version": "1.0.0",
+  "description": "Angular + SASS + Express + Webpack",
+  "main": "server.js",
+  "engines": {
+    "node": "7.5.0"
+  },
+  "scripts": {
+    "reincarnate": "rm -rf build node_modules; npm install",
+    "development": "rm -rf build;webpack --env.development;NODE_ENV=development babel-watch source/server/server.js",
+    "production": "rm -rf build;webpack -p --env.production;NODE_ENV=production node build/server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/debugme/angular-tennis.git"
+  },
+  "author": "Asad Razvi <debugme@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/debugme/angular-tennis/issues"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "6.22.0",
+    "babel-preset-es2016": "6.22.0",
+    "babel-preset-stage-0": "6.22.0",
+    "babel-watch": "^2.0.6",
+    "css-loader": "^0.26.1",
+    "eslint": "^3.13.1",
+    "extract-text-webpack-plugin": "^2.0.0-beta.5",
+    "file-loader": "^0.10.0",
+    "html-webpack-plugin": "^2.26.0",
+    "image-webpack-loader": "^3.2.0",
+    "node-sass": "^4.3.0",
+    "sass-loader": "^4.1.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^2.2.0",
+    "yarn": "^0.19.1"
+  },
+  "dependencies": {
+    "angular": "^1.5.11",
+    "express": "^4.14.0",
+    "moment": "^2.17.1",
+    "webpack-dev-middleware": "^1.10.0"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "extends": "es2015",
+  "installedESLint": true,
+  "plugins": [
+    "standard"
+  ],
+  "rules": {
+    "indent": [
+      "error",
+      2
+    ],
+    "space-before-function-paren": [
+      "error",
+      {
+        "anonymous": "always",
+        "named": "always",
+        "asyncArrow": "ignore"
+      }
+    ],
+    "eol-last": [
+      "error",
+      "always"
+    ]
+  }
+}

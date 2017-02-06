@@ -1,0 +1,62 @@
+body, header, footer, main, .container  {
+  display: flex;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.container, main  {
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  align-items: center;
+  justify-content: space-between;
+  flex-basis: 3em;
+  &-logo {
+    margin-left: 0.5em;
+    margin-right: auto;
+  }
+  &-avatar {
+    width: 2em;
+    height: 2em;
+    margin: 0;
+  }
+  &-name {
+    margin-left: 0.5em;
+  }
+  &-name:last-of-type {
+    margin-left: 0.5em;
+  }
+}
+
+.content {
+  width: 100vw;
+  flex: auto;
+  overflow: auto;
+  padding: 0em 2em 0em 2em;
+}
+
+.footer {
+  align-items: center;
+  justify-content: flex-end;
+  flex-basis: 3em;
+  &-link {
+    &-icon {
+      margin-left: 1em;
+    }
+    &-icon::after {
+      margin-left: 0.4em;
+    }
+  }
+  &-view {
+    &-icon {
+      margin-left: 1em;
+    }
+    &-icon::after {
+      margin-left: 0.4em;
+    }
+  }
+
+}

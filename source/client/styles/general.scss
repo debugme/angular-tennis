@@ -1,0 +1,75 @@
+@import 'partials/variables';
+
+@font-face {
+  font-family: $icon-font;
+  src: url('../fonts/fontello.woff2') format('woff2');
+}
+
+.container {
+  background-color: $blue-color;
+  font-family: $text-font;
+  font-weight: 200;
+  font-size: 1em;
+}
+
+.header {
+  background-color: $black-color;
+  color: $blue-color;
+  &-icon {
+    color: $red-color;
+    font-family: $icon-font;
+    font-style: normal;
+    font-size: 1.3rem;
+  }
+  &-logo {
+    letter-spacing: 0.2em;
+  }
+  &-avatar {
+    border-radius: 2em;
+  }
+}
+
+.content {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.footer {
+  background-color: $black-color;
+  color: $grey-color;
+  font-style: normal;
+  text-decoration: none;
+  &-link:link, &-link:visited, &-link:hover, &-link:active {
+    color: $grey-color;
+  }
+  &-link {
+    text-decoration: none;
+    font-size: 0.9rem;
+    &-icon {
+      font-family: $icon-font;
+      color: $blue-color;
+      font-style: normal;
+    }
+    &-icon::before {
+      content: attr(data-icon);
+    }
+    &-icon::after {
+      content: attr(data-title);
+      color: $grey-color;
+      font-family: $text-font;
+    }
+  }
+  &-view {
+    font-size: 0.9rem;
+    &-icon {
+      font-family: $icon-font;
+      color: $red-color;
+      font-style: normal;
+    }
+    &-icon::after {
+      color: $grey-color;
+      font-family: $text-font;
+    }
+  }
+}
