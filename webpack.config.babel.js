@@ -16,7 +16,7 @@ const getConfiguration = environment => {
     // need to download on future loads of our application.
     // -------------------------------------------------------------------------------------
     entry: {
-      bundle: 'source/client/application/components/Application.js',
+      bundle: 'source/client/application/components/application.js',
       vendor: ['moment', 'angular']
     },
 
@@ -56,9 +56,9 @@ const getConfiguration = environment => {
       modules: ['node_modules', __dirname],
       extensions: ['.js', '.css', '.scss'],
       alias: {
-        'Header': 'source/client/application/components/Header',
-        'Content': 'source/client/application/components/Content',
-        'Footer': 'source/client/application/components/Footer',
+        'AppHeader': 'source/client/application/components/app-header',
+        'AppContent': 'source/client/application/components/app-content',
+        'AppFooter': 'source/client/application/components/app-footer',
         'AvatarImage': 'source/client/images/avatar.jpg',
         'GeneralStyle': 'source/client/styles/general.scss',
         'LayoutStyle': 'source/client/styles/layout.scss',

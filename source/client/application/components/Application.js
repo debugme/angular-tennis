@@ -1,5 +1,15 @@
 import angular from 'angular'
 
-var Application = angular.module('Application', []);
+import appHeader from 'AppHeader'
+import appContent from 'AppContent'
+import appFooter from 'AppFooter'
 
-export default Application
+import 'GeneralStyle'
+import 'LayoutStyle'
+import 'ResponsiveStyle'
+
+var application = angular.module('application', []);
+
+application.directive('appHeader', appHeader)
+application.directive('appContent', appContent)
+application.directive('appFooter', appFooter)
