@@ -3,17 +3,21 @@ import path from 'path'
 import webpack from 'webpack'
 import webpackMiddleware from 'webpack-dev-middleware'
 import webpackConfig from '../../webpack.config.babel.js'
-import TournamentData from './tournament.json'
+import weatherMiddleware from './middleware/weather'
+import { middleware as cache } from 'apicache'
 
 const server = express()
 
+server.locals.weatherApiKey = process.env.WEATHER_API_KEY
+
+server.get('/api/weather/:country/:city/:units', cache('1 hour'), weatherMiddleware)
+
 const mode = process.env.NODE_ENV || 'development'
 
-server.get('/tournament-data', (request, response) => response.json(TournamentData))
-
 if (mode === 'production') {
-  server.use(express.static('build/client'))
-  server.get('*', (request, response) => response.sendFile('build/index.html'))
+  const root = path.resolve('./build/client')
+  server.use(express.static(root))
+  server.get('/*', (request, response) => response.sendFile('index.html', { root }))
 } else {
   const clientConfig = webpackConfig({NODE_ENV: mode})[0]
   server.use(webpackMiddleware(webpack(clientConfig)))
