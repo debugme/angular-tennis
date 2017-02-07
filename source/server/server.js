@@ -4,13 +4,16 @@ import webpack from 'webpack'
 import webpackMiddleware from 'webpack-dev-middleware'
 import webpackConfig from '../../webpack.config.babel.js'
 import weatherMiddleware from './middleware/weather'
+import geocodeMiddleware from './middleware/geocode'
 import { middleware as cache } from 'apicache'
 
 const server = express()
 
 server.locals.weatherApiKey = process.env.WEATHER_API_KEY
+server.locals.geocodeApiKey = process.env.GEOCODE_API_KEY
 
 server.get('/api/weather/:country/:city/:units', cache('1 hour'), weatherMiddleware)
+server.get('/api/geocode/:country/', cache('1 hour'), geocodeMiddleware)
 
 const mode = process.env.NODE_ENV || 'development'
 
