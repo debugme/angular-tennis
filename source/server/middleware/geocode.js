@@ -8,7 +8,6 @@ export default function (request, response, next) {
     .then((cargo) => {
       const location = cargo.data.results[0].geometry.location
       response.json({ country, location })
-      next()
     })
     .catch(error => {
       response.status(400).send(error.toString())

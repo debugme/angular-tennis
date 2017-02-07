@@ -8,7 +8,6 @@ export default function (request, response, next) {
     .then((cargo) => {
       const data = cargo.data
       response.json({ country, city, data})
-      next()
     }).
     catch(error => {
       response.status(400).send(error.response.data.message)

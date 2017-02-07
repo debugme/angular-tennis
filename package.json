@@ -37,8 +37,7 @@
     "node-sass": "^4.3.0",
     "sass-loader": "^4.1.1",
     "url-loader": "^0.5.7",
-    "webpack": "^2.2.0",
-    "yarn": "^0.19.1"
+    "webpack": "^2.2.0"
   },
   "dependencies": {
     "angular": "^1.5.11",
