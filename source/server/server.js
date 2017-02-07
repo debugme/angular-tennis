@@ -1,11 +1,16 @@
 import express from 'express'
 import path from 'path'
 import webpack from 'webpack'
+import moment from 'moment'
+import morgan from 'morgan'
+import fs from 'fs'
+
 import webpackMiddleware from 'webpack-dev-middleware'
+import { middleware as cache } from 'apicache'
+
 import webpackConfig from '../../webpack.config.babel.js'
 import weatherMiddleware from './middleware/weather'
 import geocodeMiddleware from './middleware/geocode'
-import { middleware as cache } from 'apicache'
 
 const server = express()
 
@@ -18,10 +23,14 @@ server.get('/api/geocode/:country/', cache('1 hour'), geocodeMiddleware)
 const mode = process.env.NODE_ENV || 'development'
 
 if (mode === 'production') {
+  const logsFolder = path.resolve(`./logs/access.${moment().format('YYYYMMDD')}.log`)
+  var stream = fs.createWriteStream(logsFolder, {flags: 'a'})
+  server.use(morgan('common', { stream }))
   const root = path.resolve('./build/client')
   server.use(express.static(root))
   server.get('/*', (request, response) => response.sendFile('index.html', { root }))
 } else {
+  server.use(morgan('dev'))
   const clientConfig = webpackConfig({NODE_ENV: mode})[0]
   server.use(webpackMiddleware(webpack(clientConfig)))
 }
