@@ -27,7 +27,9 @@ function setUpHelpers(server, mode, weatherApiKey, geocodeApiKey) {
 }
 
 function setUpLogging(server, mode) {
-  const logFile = path.resolve(`./logs/${mode}.${moment().format('YYYYMMDD')}.log`)
+  var logFolder = path.resolve('./logs')
+  fs.existsSync(logFolder) || fs.mkdirSync(logFolder)
+  const logFile = `${logFolder}/${mode}.${moment().format('YYYYMMDD')}.log`
   var stream = fs.createWriteStream(logFile, {flags: 'a'})
   server.use(morgan('common', { stream }))
 }
