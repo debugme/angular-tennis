@@ -4,4 +4,3 @@ documentation/
 logs/*.log
 node_modules/
 npm-debug.log
-source/server/options.json
