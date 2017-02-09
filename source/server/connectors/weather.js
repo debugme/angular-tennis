@@ -1,0 +1,31 @@
+import axios from 'axios'
+import { middleware } from 'apicache'
+import moment from 'moment'
+
+function weatherHelper(config, request, response, next) {
+  const { apiKey, expire, notify } = config
+  const { country, city, units } = request.params
+  const expiry = moment().add(...expire).format('YYYY:MM:DD-HH:mm:ss (x)')
+  const url = `http://api.openweathermap.org/data/2.5/weather?APPID=${apiKey}&q=${city},${country}&units=metric`
+  notify()
+  axios.get(url)
+    .then((cargo) => {
+      const data = cargo.data
+      response.json({ country, city, data, expiry})
+    }).
+    catch(error => {
+      response.status(400).send(error.response.data.message)
+    })
+}
+
+function connectWeather({ server, mode, weatherApiKey }) {
+  const weatherExpire = (mode === 'production') ? [1, 'hour'] : [10, 'seconds']
+  const weatherNotify = (mode === 'production') ? () => {} : () => console.log('Calling Weather API')
+  const weatherConfig = { apiKey: weatherApiKey, expire: weatherExpire, notify: weatherNotify}
+  const weatherRoute = '/api/weather/:country/:city'
+  const weatherCache = middleware.bind(this, weatherExpire.join(' '))()
+  const weatherMiddle = weatherHelper.bind(this, weatherConfig)
+  server.get(weatherRoute, weatherCache, weatherMiddle)
+}
+
+export default connectWeather
