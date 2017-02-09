@@ -1,8 +1,18 @@
-## How To Run Application
----
+# Install Steps
 
-Install [Node 7.5.0](https://nodejs.org/en/) then follow these steps to install and run the application :
+Install [Node 7.5.0](https://nodejs.org/en/)
 
+Open a [OpenWeather](http://openweathermap.org) account and paste your API key into [options.json](source/server/options.json)
+
+Open a [Geocoding](https://developers.google.com/maps/documentation/geocoding/start) account and paste your API key into [options.json](source/server/options.json)
+
+
+# Build Steps
+
+   Open a Terminal to your folder
+   ```
+   $
+   ```
 
    Download the project code from GitHub
    ```
@@ -11,7 +21,7 @@ Install [Node 7.5.0](https://nodejs.org/en/) then follow these steps to install 
 
    Navigate to downloaded folder
    ```
-   $ cd react-angular
+   $ cd angular-tennis
    ```
 
    Install project dependencies
@@ -19,19 +29,18 @@ Install [Node 7.5.0](https://nodejs.org/en/) then follow these steps to install 
    $ npm run reincarnate
    ```
 
+# Run Steps
+
    Start up the server
    ```
    $ npm run production
    ```
-
    Open your browser at
    ```
    http://localhost:3002
    ```
 
-## Technology Stack
----
-The following libraries and frameworks were used  :
+# Technology Stack
 
 * [Angular](https://angularjs.org) - used to build the entire web application
 * [Webpack](https://webpack.js.org) - used to concatenate code and assets into bundles
