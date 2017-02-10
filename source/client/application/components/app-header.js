@@ -9,7 +9,7 @@ const appHeader = function(){
         <span class="header-logo">Tournament</span>
         <img class="header-avatar" src=${avatar} />
         <span class="header-name">Asad</span>
-        <span class="header-name"> Razvi</span>
+        <span class="header-name">Razvi</span>
       </header>
     `
   }
