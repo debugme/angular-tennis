@@ -14,16 +14,17 @@ function geocodeHelper(config, request, response, next) {
       response.json({ country, location, expiry })
     })
     .catch(error => {
-      response.status(400).send(error.toString())
+      const message = error.toString()
+      response.status(400).json({message})
     })
 }
 
 function connectGeocode({server, mode, geocodeApiKey}) {
   const geocodeExpire = (mode === 'production') ? [1, 'week'] : [10, 'seconds']
-  const geocodeNotify = (mode === 'production') ? () => {} : () => console.log('Calling Geocode API')
+  const geocodeNotify = (mode === 'production') ? () => {} : () => console.log(`${moment().format('YYYY:MM:DD-HH:mm:ss - ')}Calling Geocode API`)
   const geocodeConfig = { apiKey: geocodeApiKey, expire: geocodeExpire, notify: geocodeNotify}
   const geocodeRoute = '/api/geocode/:country'
-  const geocodeCache = middleware.bind(this, geocodeExpire.join(' '))()
+  const geocodeCache = middleware.bind(this, geocodeExpire.join(' '), ({statusCode}) => statusCode === 200)()
   const geocodeMiddle = geocodeHelper.bind(this, geocodeConfig)
   server.get(geocodeRoute, geocodeCache, geocodeMiddle)
 }
