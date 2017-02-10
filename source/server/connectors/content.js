@@ -1,36 +1,31 @@
 import axios from 'axios'
 import moment from 'moment'
 
-const getMatches = host =>
+const getMatchesData = host =>
   axios.get(`http://${host}/api/matches`)
 
-const getGeocode = (host, {location}) =>
+const getGeocodeData = (host, {location}) =>
   axios.get(`http://${host}/api/geocode/${location}`)
 
-const getWeather = (host, {location, city}) =>
+const getWeatherData = (host, {location, city}) =>
   axios.get(`http://${host}/api/weather/${location}/${city}`)
 
-const makeRecord = (matches, geocode, weather) =>
-  Promise.resolve({ matches, geocode, weather })
+const buildRow = (host, matchesData) =>
+  axios
+    .all([getGeocodeData(host, matchesData), getWeatherData(host, matchesData)])
+    .then(axios.spread((geocodeData, weatherData) => Promise.resolve(matchesData, geocodeData.data, weatherData.data)))
 
-function connectContent({server, mode}) {
+const buildTable = (host, response, cargo) =>
+  axios
+    .all(cargo.data.matches.map(matchesData => buildRow(host, matchesData)))
+    .then(tableData => response.json(tableData))
 
-  server.get('/api/content', (request, response, next) => {
-    const { host } = request.headers
-    getMatches(host)
-      .then(({data}) => {
-        axios.all(data.matches.map((matchesData) =>
-          axios
-            .all([getGeocode(host, matchesData), getWeather(host, matchesData)])
-            .then(axios.spread((geocodeData, weatherData) =>
-              makeRecord(matchesData, geocodeData.data, weatherData.data)
-            ))
-        ))
-        .then((mergedData) =>
-          response.json(mergedData)
-        )
-      })
-  })
+const contentHelper = (request, response, next) =>
+    getMatchesData(request.headers.host)
+      .then(buildTable.bind(this, request.headers.host, response))
+
+function connectContent({server}) {
+  server.get('/api/content', contentHelper)
 }
 
 export default connectContent
