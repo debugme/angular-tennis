@@ -14,18 +14,20 @@ const appContent = function(){
           <div class="content-stack-column">
             <div ng-repeat="row in data.rows track by ('row-micro-' + $index)" class="content-stack-column-card">
               <span ng-repeat="value in row track by ('value-micro-' + $index)">
-                <span ng-if="data.headings[$index].type === 'micro'">
-                {{value}}
-                </span>
+                <div ng-if="data.headings[$index].type === 'micro'">
+                  <span class="content-stack-column-card-label">{{data.headings[$index].name}}:</span>
+                  <span class="content-stack-column-card-value">{{value}}</span>
+                </div>
               </span>
             </div>
           </div>
           <div class="content-stack-column small">
             <div ng-repeat="row in data.rows track by ('row-small-' + $index)" class="content-stack-column-card">
               <span ng-repeat="value in row track by ('value-small-' + $index)">
-                <span ng-if="data.headings[$index].type === 'small'">
-                {{value}}
-                </span>
+                <div ng-if="data.headings[$index].type === 'small'">
+                  <span class="content-stack-column-card-label">{{data.headings[$index].name}}:</span>
+                  <span class="content-stack-column-card-value">{{value}}</span>
+                </div>
               </span>
             </div>
           </div>

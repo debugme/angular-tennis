@@ -35,11 +35,12 @@ body, header, footer, main, .container  {
   width: 100vw;
   flex: auto;
   overflow: auto;
-  padding: 2em 2em 0em 2em;
+  padding: 1em 1em 0em 1em;
 }
 
 /** Table */
 .content-table {
+  margin: 1em;
   padding: 0.5em 2em;;
   display: flex;
   flex-direction: row;
