@@ -55,6 +55,7 @@ const contentHelper = (request, response, next) =>
           .then(axios.spread((geocodeData, weatherData) =>
             makeRecord(matchesData, geocodeData.data, weatherData.data)
           ))
+          .catch(error => console.log(`ERROR /GET api/content ${error.toString()}`))
       ))
         .then((rawData) =>
           response.status(200).json(formatData(rawData))
