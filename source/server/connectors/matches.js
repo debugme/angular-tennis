@@ -10,11 +10,11 @@ function matchesHelper(config, request, response, next) {
 }
 
 function connectMatches({server, mode}) {
-  const matchesExpire = (mode === 'production') ? [1, 'day'] : [10, 'seconds']
+  const matchesExpire = (mode === 'production') ? [1, 'day'] : [20, 'seconds']
   const matchesNotify = (mode === 'production') ? () => {} : () => console.log(`${moment().format('YYYY:MM:DD-HH:mm:ss - ')}Calling Matches API`)
   const matchesConfig = { expire: matchesExpire, notify: matchesNotify}
   const matchesRoute = '/api/matches'
-  const matchesCache = middleware.bind(this, matchesExpire.join(' '))()
+  const matchesCache = middleware.bind(this, matchesExpire.join(' '), (request, response) => response.statusCode === 200)()
   const matchesMiddle = matchesHelper.bind(this, matchesConfig)
   server.get(matchesRoute, matchesCache, matchesMiddle)
 }

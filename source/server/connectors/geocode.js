@@ -20,11 +20,11 @@ function geocodeHelper(config, request, response, next) {
 }
 
 function connectGeocode({server, mode, geocodeApiKey}) {
-  const geocodeExpire = (mode === 'production') ? [1, 'week'] : [10, 'seconds']
+  const geocodeExpire = (mode === 'production') ? [1, 'week'] : [20, 'seconds']
   const geocodeNotify = (mode === 'production') ? () => {} : () => console.log(`${moment().format('YYYY:MM:DD-HH:mm:ss - ')}Calling Geocode API`)
   const geocodeConfig = { apiKey: geocodeApiKey, expire: geocodeExpire, notify: geocodeNotify}
   const geocodeRoute = '/api/geocode/:country'
-  const geocodeCache = middleware.bind(this, geocodeExpire.join(' '), ({statusCode}) => statusCode === 200)()
+  const geocodeCache = middleware.bind(this, geocodeExpire.join(' '), (request, response) => response.statusCode === 200)()
   const geocodeMiddle = geocodeHelper.bind(this, geocodeConfig)
   server.get(geocodeRoute, geocodeCache, geocodeMiddle)
 }
