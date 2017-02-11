@@ -24,7 +24,7 @@ function connectWeather({ server, mode, weatherApiKey }) {
   const weatherNotify = (mode === 'production') ? () => {} : () => console.log(`${moment().format('YYYY:MM:DD-HH:mm:ss - ')}Calling Weather API`)
   const weatherConfig = { apiKey: weatherApiKey, expire: weatherExpire, notify: weatherNotify}
   const weatherRoute = '/api/weather/:country/:city'
-  const weatherCache = middleware.bind(this, weatherExpire.join(' '), (request, response) => response.statusCode === 200)()
+  const weatherCache = middleware(weatherExpire.join(' '), (request, response) => response.statusCode === 200)
   const weatherMiddle = weatherHelper.bind(this, weatherConfig)
   server.get(weatherRoute, weatherCache, weatherMiddle)
 }
