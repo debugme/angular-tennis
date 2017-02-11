@@ -15,8 +15,7 @@ const makeRecord = (matches, geocode, weather) =>
   Promise.resolve({ matches, geocode, weather })
 
 const formatData = rawData => {
-  // console.log(JSON.stringify(rawData, undefined, 3))
-  const table = [[
+  const names = [
     'Tournament',
     'Status',
     'StartDate',
@@ -27,7 +26,8 @@ const formatData = rawData => {
     'Country',
     'Weather',
     'Temperature',
-    'Pressure']]
+    'Pressure'
+  ]
   const paths = [
     'matches.tournamentName',
     'matches.status',
@@ -41,7 +41,8 @@ const formatData = rawData => {
     'weather.data.main.temp',
     'weather.data.main.pressure'
   ]
-  rawData.forEach(data => table.push(paths.map(path => get(data, path, ''))))
+  const rows = rawData.map(data => paths.map(path => get(data, path, '')))
+  const table = { names, rows }
   return table
 }
 

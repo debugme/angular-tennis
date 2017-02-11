@@ -10,9 +10,9 @@ const appContent = function(){
 
         <div class="content-grid">
           <div class="content-grid-row">
-            <div class="content-grid-cell" ng-repeat="value in data[0]">{{value}}</div>
+            <div class="content-grid-cell" ng-repeat="name in data.names">{{name}}</div>
           </div>
-          <div class="content-grid-row" ng-repeat="row in data.slice(1) track by ($index)">
+          <div class="content-grid-row" ng-repeat="row in data.rows track by ($index)">
             <div class="content-grid-cell" ng-repeat="value in row track by ($parent.$index + $index)">{{value}}</div>
           </div>
         </div>
@@ -20,12 +20,12 @@ const appContent = function(){
         <table>
           <thead>
             <tr>
-              <th ng-repeat="header in data[0]">{{header}}</th>
+              <th ng-repeat="name in data.names">{{name}}</th>
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="row in data.slice(1) track by ($index)">
-              <td ng-repeat="cell in row track by ($parent.$index + $index)">{{cell}}</td>
+            <tr ng-repeat="row in data.rows track by ($index)">
+              <td ng-repeat="value in row track by ($parent.$index + $index)">{{value}}</td>
             </tr>
           </tbody>
         </table>
