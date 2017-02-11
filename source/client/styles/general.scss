@@ -35,6 +35,47 @@
   }
 }
 
+.content::-webkit-scrollbar {
+  display: none;
+}
+
+/** Table */
+.content-table {
+  background-color: white;
+  box-shadow: 0 2px 4px 0 rgba(34,36,38,.12), 0 2px 10px 0 rgba(34,36,38,.15);
+  border-radius: 0.3em;
+  border: 1px solid rgba(34,36,38,.15);
+  color: $black-color;
+}
+
+/** Table Headers */
+.content-table-column-name {
+  font-weight: 300;
+  line-height: 2;
+  font-size: 1.1rem;
+}
+
+/** Table Rows */
+.content-table-column-cell {
+  font-weight: 200;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.content-stack {
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.content-stack-column-card {
+  background-color: white;
+  box-shadow: 0 2px 4px 0 rgba(34,36,38,.12), 0 2px 10px 0 rgba(34,36,38,.15);
+  border-radius: 0.3em;
+  border: 1px solid rgba(34,36,38,.15);
+}
+
 .footer {
   background-color: $black-color;
   color: $grey-color;

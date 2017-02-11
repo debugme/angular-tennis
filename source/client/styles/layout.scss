@@ -35,7 +35,48 @@ body, header, footer, main, .container  {
   width: 100vw;
   flex: auto;
   overflow: auto;
-  padding: 0em 2em 0em 2em;
+  padding: 2em 2em 0em 2em;
+}
+
+/** Table */
+.content-table {
+  padding: 0.5em 2em;;
+  display: flex;
+  flex-direction: row;
+
+}
+
+/** Table Columns */
+.content-table-column {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  align-items: flex-start;
+}
+
+.content-stack  {
+  overflow: auto;
+  align-items: stretch;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100vh;
+}
+
+.content-stack-column {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 50%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  align-items: stretch;
+}
+
+.content-stack-column-card {
+  padding: 1em;
+  flex: 0 0 5em;
+  margin: 1em;
 }
 
 .footer {

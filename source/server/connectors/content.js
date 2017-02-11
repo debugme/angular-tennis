@@ -15,19 +15,20 @@ const makeRecord = (matches, geocode, weather) =>
   Promise.resolve({ matches, geocode, weather })
 
 const formatData = rawData => {
-  const names = [
-    'Tournament',
-    'Status',
-    'StartDate',
-    'EndDate',
-    'Surface',
-    'Environment',
-    'City',
-    'Country',
-    'Weather',
-    'Temperature',
-    'Pressure'
+  const headings = [
+    { name: 'Tournament', type: 'micro'},
+    { name: 'Status', type: 'medium'},
+    { name: 'StartDate', type: 'micro'},
+    { name: 'EndDate', type: 'small'},
+    { name: 'Surface', type: 'small'},
+    { name: 'Environment', type: 'small'},
+    { name: 'City', type: 'micro'},
+    { name: 'Country', type: 'micro'},
+    { name: 'Weather', type: 'large'},
+    { name: 'Temperature', type: 'large'},
+    { name: 'Pressure', type: 'large'}
   ]
+
   const paths = [
     'matches.tournamentName',
     'matches.status',
@@ -42,7 +43,8 @@ const formatData = rawData => {
     'weather.data.main.pressure'
   ]
   const rows = rawData.map(data => paths.map(path => get(data, path, '')))
-  const table = { names, rows }
+  const cols = rows[0].map((column, index) => rows.map(row => row[index]))
+  const table = { headings, rows, cols}
   return table
 }
 
