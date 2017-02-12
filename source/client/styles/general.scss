@@ -51,15 +51,16 @@
 /** Table Headers */
 .content-table-column-name {
   font-weight: 300;
+  font-size: 1.2rem;
   line-height: 2;
-  font-size: 1.1rem;
+  color: $grey-color;
 }
 
 /** Table Rows */
 .content-table-column-cell {
   font-weight: 200;
   line-height: 1.5;
-  font-size: 0.9rem;
+  color: $black-color;
 }
 
 .content-stack {
@@ -78,11 +79,13 @@
   &-label {
     font-weight: 300;
     color: $grey-color;
+    line-height: 1.5;
   }
 
   &-value {
     font-weight: 200;
     color: $black-color;
+    line-height: 1.5;
   }
 }
 

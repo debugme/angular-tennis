@@ -38,7 +38,7 @@
 }
 
 /* Small Display */
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1400px) {
   .header {
     padding: 0 1em;
     &-name:last-of-type {
@@ -67,7 +67,7 @@
 }
 
 /* Micro Display */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .header {
     padding: 0 1em;
     &-logo {

@@ -1,9 +1,3 @@
-const formatData = table => {
-  return table
-}
-
-
-
 const appContent = function(){
   return {
     replace: true,
@@ -46,7 +40,7 @@ const appContent = function(){
 
       </main>
     `,
-    controller: function($scope, $http) {
+    controller: ['$scope', '$http', function($scope, $http) {
       $scope.init = () => {
         const endpoint = '/api/content'
         const onSuccess = data => {
@@ -59,8 +53,7 @@ const appContent = function(){
           .then(onSuccess)
           .catch(onFailure)
       }
-    },
-
+    }]
   }
 }
 

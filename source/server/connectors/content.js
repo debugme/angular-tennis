@@ -19,13 +19,13 @@ const formatData = rawData => {
     { name: 'Tournament', type: 'micro'},
     { name: 'Status', type: 'medium'},
     { name: 'StartDate', type: 'micro'},
-    { name: 'EndDate', type: 'small'},
+    { name: 'EndDate', type: 'large'},
     { name: 'Surface', type: 'small'},
     { name: 'Environment', type: 'small'},
     { name: 'City', type: 'micro'},
     { name: 'Country', type: 'micro'},
-    { name: 'Weather', type: 'large'},
-    { name: 'Temperature', type: 'large'},
+    { name: 'Weather', type: 'small'},
+    { name: 'Temperature', type: 'small'},
     { name: 'Pressure', type: 'large'}
   ]
 
