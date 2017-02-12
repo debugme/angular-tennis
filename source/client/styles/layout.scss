@@ -40,8 +40,8 @@ body, header, footer, main, .container  {
     display: none;
   }
   &-table {
-    margin: 2em 2em 2em 2em;
-    padding: 0.5em 2em;;
+    margin: 2em 1em 2em 1em;
+    padding: 0.5em 2em;
     display: flex;
     flex-direction: row;
     overflow: auto;
@@ -56,8 +56,7 @@ body, header, footer, main, .container  {
     }
   }
   &-stack {
-    margin: 1em 1em 2em 1em;
-    align-items: stretch;
+    margin: 1em 0 2em 0;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -76,7 +75,7 @@ body, header, footer, main, .container  {
       align-items: stretch;
       &-card {
         padding: 1em;
-        flex: auto;
+        flex: none;
         margin: 1em;
       }
     }
