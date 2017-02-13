@@ -1,5 +1,5 @@
 /* Large Display */
-@media screen and (min-width: 1501px) {
+@media screen and (min-width: 1851px) {
   .header {
     padding: 0 3em;
   }
@@ -18,7 +18,7 @@
 }
 
 /* Medium Display */
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1850px) {
   .header {
     padding: 0 2em;
   }
@@ -48,7 +48,7 @@
 }
 
 /* Small Display */
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1550px) {
   .header {
     padding: 0 1em;
     &-name:last-of-type {
@@ -89,7 +89,7 @@
 }
 
 /* Micro Display */
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 800px) {
   .header {
     padding: 0 1em;
     &-logo {
