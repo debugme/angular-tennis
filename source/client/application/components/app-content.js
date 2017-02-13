@@ -1,4 +1,4 @@
-const appContent = function(){
+const appContent = function () {
   return {
     replace: true,
     template: `
@@ -40,15 +40,13 @@ const appContent = function(){
 
       </main>
     `,
-    controller: ['$scope', '$http', function($scope, $http) {
+    controller: ['$scope', '$http', function ($scope, $http) {
       $scope.init = () => {
         const endpoint = '/api/content'
-        const onSuccess = data => {
+        const onSuccess = data =>
           $scope.data = data.data
-        }
-        const onFailure = data => {
+        const onFailure = data =>
           $scope.data = `Error: ${data.data}`
-        }
         $http.get(endpoint)
           .then(onSuccess)
           .catch(onFailure)

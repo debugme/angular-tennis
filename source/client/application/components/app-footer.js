@@ -1,20 +1,20 @@
-const appFooter = function() {
+const appFooter = function () {
   return {
     replace: true,
     template: `
       <footer class="footer">
 
         <a class="footer-link" href="mailto:debugme@hotmail.com">
-          <i class="footer-link-icon" data-title="E-Mail" data-icon="&#xf1d8;"></i>
+          <i class="footer-link-icon" data-title="E-Mail" data-icon="&#xf1d8;"/>
         </a>
         <a class="footer-link" href="https://uk.linkedin.com/in/debugme" target="_blank">
-          <i class="footer-link-icon" data-title="LinkedIn" data-icon="&#xf30c;"></i>
+          <i class="footer-link-icon" data-title="LinkedIn" data-icon="&#xf30c;"/>
         </a>
         <a class="footer-link" href="https://github.com/debugme" target="_blank">
-          <i class="footer-link-icon" data-title="GitHub" data-icon="&#xf09b;"></i>
+          <i class="footer-link-icon" data-title="GitHub" data-icon="&#xf09b;"/>
         </a>
         <a class="footer-link" href="https://debugme.wordpress.com/" target="_blank">
-          <i class="footer-link-icon" data-title="WordPress" data-icon="&#xf19a;"></i>
+          <i class="footer-link-icon" data-title="WordPress" data-icon="&#xf19a;"/>
         </a>
 
         <span class="footer-view">

@@ -3,11 +3,14 @@ import { middleware } from 'apicache'
 import moment from 'moment'
 
 function geocodeHelper(config, request, response, next) {
+
   const { apiKey, expire, notify } = config
   const { country } = request.params
   const expiry = moment().add(...expire).format('YYYY:MM:DD-HH:mm:ss (x)')
   const url = `https://maps.googleapis.com/maps/api/geocode/json?components=country:${country}&key=${apiKey}`
+
   notify()
+
   axios.get(url)
     .then((cargo) => {
       const location = cargo.data.results[0].geometry.location
@@ -15,14 +18,15 @@ function geocodeHelper(config, request, response, next) {
     })
     .catch(error => {
       const message = error.toString()
-      response.status(400).json({message})
+      response.status(400).json({ message })
     })
 }
 
 function connectGeocode({server, mode, geocodeApiKey}) {
+
   const geocodeExpire = (mode === 'production') ? [1, 'week'] : [20, 'seconds']
-  const geocodeNotify = (mode === 'production') ? () => {} : () => console.log(`${moment().format('YYYY:MM:DD-HH:mm:ss - ')}Calling Geocode API`)
-  const geocodeConfig = { apiKey: geocodeApiKey, expire: geocodeExpire, notify: geocodeNotify}
+  const geocodeNotify = (mode === 'production') ? () => { } : () => console.log(`${moment().format('YYYY:MM:DD-HH:mm:ss - ')}Calling Geocode API`)
+  const geocodeConfig = { apiKey: geocodeApiKey, expire: geocodeExpire, notify: geocodeNotify }
   const geocodeRoute = '/api/geocode/:country'
   const geocodeCache = middleware(geocodeExpire.join(' '), (request, response) => response.statusCode === 200)
   const geocodeMiddle = geocodeHelper.bind(this, geocodeConfig)

@@ -15,6 +15,7 @@ const makeRecord = (matches, geocode, weather) =>
   Promise.resolve({ matches, geocode, weather })
 
 const formatData = rawData => {
+
   const headings = [
     { name: 'Tournament', type: 'micro'},
     { name: 'Status', type: 'medium'},
@@ -42,13 +43,16 @@ const formatData = rawData => {
     'weather.data.main.temp',
     'weather.data.main.pressure'
   ]
+
   const rows = rawData.map(data => paths.map(path => get(data, path, '')))
   const cols = rows[0].map((column, index) => rows.map(row => row[index]))
+
   const table = { headings, rows, cols}
   return table
 }
 
 const contentHelper = (request, response, next) =>
+
   getMatches(request.headers.host)
     .then(({data}) => {
       axios.all(data.matches.map((matchesData) =>
@@ -64,9 +68,7 @@ const contentHelper = (request, response, next) =>
         )
     })
 
-
 const connectContent = ({server, mode}) =>
   server.get('/api/content', contentHelper)
 
 export default connectContent
-
