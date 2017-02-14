@@ -18,13 +18,9 @@ This application was written to showcase how to build a responsive and performan
 * In both modes, source maps are generated to reconcile generated CSS back to the source SASS files they are derived from
 
 # Install Steps
-
 * Install [Node 7.5.0](https://nodejs.org/en/)
-
 * Open a [OpenWeather](http://openweathermap.org) account and paste your API key into [options.json](source/server/options.json)
-
 * Open a [Geocoding](https://developers.google.com/maps/documentation/geocoding/start) account and paste your API key into [options.json](source/server/options.json)
-
 
 # Build Steps
 
@@ -61,7 +57,7 @@ This application was written to showcase how to build a responsive and performan
 
 # RESTful Endpoints
 The application endpoints are exposed to help with testing
-* [Geocoding Endpoint](http://localhost:3002/api/geocode/france)
+* [Geocode Endpoint](http://localhost:3002/api/geocode/france)
 * [Weather Endpoint](http://localhost:3002/api/weather/france/paris)
 * [Matches Endpoint](http://localhost:3002/api/matches)
 * [Content Endpoint](http://localhost:3002/api/content)
