@@ -3,7 +3,7 @@ This application was written to showcase how to build a responsive and performan
 
 ## Architecture
 * The client is created using a Flexbox based layout that makes use of media queries for a responsive experience
-* The server is composed using a connector-based metaphor that simplifies the addition of fuuture functionality
+* The server is composed using a connector-based metaphor that simplifies the addition of future functionality
 * The endpoints used to generate the data have been intentionally exposed to make debugging and testing simple
 
 ## Optimization
