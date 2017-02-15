@@ -2,13 +2,13 @@
   "production": {
     "port": 3002,
     "mode": "production",
-    "weatherApiKey": "[put your open weather api key in here]",
-    "geocodeApiKey": "[put your google geocode api key in here]"
+    "weatherApiKey": "put your open weather api key in here",
+    "geocodeApiKey": "put your google geocode api key in here"
   },
   "development": {
     "port": 3002,
     "mode": "development",
-    "weatherApiKey": "[put your open weather api key in here]",
-    "geocodeApiKey": "[put your google geocode api key in here]"
+    "weatherApiKey": "put your open weather api key in here",
+    "geocodeApiKey": "put your google geocode api key in here"
   }
 }
