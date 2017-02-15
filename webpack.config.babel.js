@@ -10,7 +10,7 @@ const getConfiguration = environment => {
 
     entry: {
       bundle: 'source/client/application/components/application.js',
-      vendor: ['moment', 'angular']
+      vendor: ['angular']
     },
 
     output: {
