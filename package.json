@@ -8,7 +8,6 @@
   },
   "scripts": {
     "reincarnate": "rm -rf build node_modules; npm install",
-    "development": "rm -rf build;webpack --env.development;NODE_ENV=development babel-watch source/server/server.js",
     "production": "rm -rf build;webpack -p --env.production;NODE_ENV=production node build/server/server.js"
   },
   "repository": {

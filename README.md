@@ -7,20 +7,18 @@ This application was written to showcase how to build a responsive and performan
 * The endpoints used to generate the data have been intentionally exposed to make debugging and testing simple
 
 ## Optimization
-* The client is careful not to carelessly load extra libraries on the front-end to provide a quick loadtime
+* The client is careful not to load extra libraries on the front-end so as to provide for a quick load time
 * The server handles data rate limitations imposed by the providers of the external endpoints by employing caching middleware
 * As vendor code changes less often than application code, the two are served as separate bundles to leverage browser caching
 * The clientside assets (Javascript, CSS, images, etc) are named in a manner to facilitate cache-busting in the browser
 
 ## Development
-* The application can be run in development mode where both client and server code changes result in automatic recompilations
-* The application can be run in production mode where the assets are aggressively optimised to be as small and fast as possible
-* In both modes, source maps are generated to reconcile generated CSS back to the source SASS files they are derived from
+* Source maps are generated to reconcile generated CSS back to the source SASS files they are derived from
 
 # Install Steps
 * Install [Node 7.5.0](https://nodejs.org/en/)
-* Open a [OpenWeather](http://openweathermap.org) account and paste your API key into [options.json](source/server/options.json)
-* Open a [Geocoding](https://developers.google.com/maps/documentation/geocoding/start) account and paste your API key into [options.json](source/server/options.json)
+* Open a [OpenWeather](http://openweathermap.org) account and make a note of your API key
+* Open a [Geocoding](https://developers.google.com/maps/documentation/geocoding/start) account and make a note of your API key
 
 # Build Steps
 
@@ -43,6 +41,10 @@ This application was written to showcase how to build a responsive and performan
    ```
    $ npm run reincarnate
    ```
+
+   Copy your OpenWeather API key into [options.json](source/server/options.json)
+
+   Copy your Geocoding API key into [options.json](source/server/options.json)
 
 # Run Steps
 
