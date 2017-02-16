@@ -8,7 +8,7 @@
   },
   "scripts": {
     "reincarnate": "rm -rf build node_modules; npm install",
-    "production": "rm -rf build;webpack -p --env.production;NODE_ENV=production node build/server/server.js"
+    "production": "rm -rf build;webpack -p --env.production;node build/server/server.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "babel-preset-stage-0": "6.22.0",
     "babel-watch": "^2.0.6",
     "css-loader": "^0.26.1",
+    "dotenv": "^4.0.0",
     "eslint": "^3.13.1",
     "extract-text-webpack-plugin": "^2.0.0-beta.5",
     "file-loader": "^0.10.0",

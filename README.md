@@ -17,8 +17,8 @@ This application was written to showcase how to build a responsive and performan
 
 # Install Steps
 * Install [Node 7.5.0](https://nodejs.org/en/)
-* Open a [OpenWeather](http://openweathermap.org) account and make a note of your API key
-* Open a [Geocoding](https://developers.google.com/maps/documentation/geocoding/start) account and make a note of your API key
+* Open a [OpenWeather](http://openweathermap.org) account
+* Open a [Geocoding](https://developers.google.com/maps/documentation/geocoding/start) account
 
 # Build Steps
 
@@ -42,9 +42,9 @@ This application was written to showcase how to build a responsive and performan
    $ npm run reincarnate
    ```
 
-   Copy your OpenWeather API key into [options.json](source/server/options.json)
+   Add your Open Weather API key into the [.env](.env) file
 
-   Copy your Geocoding API key into [options.json](source/server/options.json)
+   Add your Google Geocode API key into the [.env](.env) file
 
 # Run Steps
 

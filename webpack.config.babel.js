@@ -102,7 +102,6 @@ const getConfiguration = environment => {
         'Logging': 'source/server/connectors/logging',
         'Routing': 'source/server/connectors/routing',
         'Express': 'source/server/connectors/express',
-        'Options': 'source/server/options',
         'WebpackConfig': 'webpack.config.babel',
         'MatchesData': 'source/server/datastore/tournament'
       }
