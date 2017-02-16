@@ -9,7 +9,7 @@ const getConfiguration = environment => {
   const clientConfiguration = {
 
     entry: {
-      bundle: 'source/client/application/components/application.js',
+      bundle: 'source/client/application/components/application',
       vendor: ['angular']
     },
 
@@ -23,15 +23,15 @@ const getConfiguration = environment => {
 
     resolve: {
       modules: ['node_modules', __dirname],
-      extensions: ['.js', '.css', '.scss'],
+      extensions: ['.js', '.css', '.jpg', '.scss'],
       alias: {
         'AppHeader': 'source/client/application/components/app-header',
         'AppContent': 'source/client/application/components/app-content',
         'AppFooter': 'source/client/application/components/app-footer',
-        'AvatarImage': 'source/client/images/avatar.jpg',
-        'GeneralStyle': 'source/client/styles/general.scss',
-        'LayoutStyle': 'source/client/styles/layout.scss',
-        'ResponsiveStyle': 'source/client/styles/responsive.scss'
+        'AvatarImage': 'source/client/images/avatar',
+        'GeneralStyle': 'source/client/styles/general',
+        'LayoutStyle': 'source/client/styles/layout',
+        'ResponsiveStyle': 'source/client/styles/responsive'
       }
     },
 
@@ -40,7 +40,7 @@ const getConfiguration = environment => {
         {
           loader: 'babel-loader',
           test: /\.js$/,
-          exclude: /(build|documentation|node_modules)/
+          exclude: /(build|node_modules)/
         },
         {
           loader: ExtractTextPlugin.extract('css-loader!sass-loader'),
@@ -86,17 +86,34 @@ const getConfiguration = environment => {
   const serverConfiguration = {
 
     entry: {
-      server: path.join(__dirname, 'source', 'server', 'server.js')
+      server: 'source/server/server'
     },
 
     devtool: 'eval',
+
+    resolve: {
+      modules: ['node_modules', __dirname],
+      extensions: ['.js', '.json'],
+      alias: {
+        'Content': 'source/server/connectors/content',
+        'Matches': 'source/server/connectors/matches',
+        'Geocode': 'source/server/connectors/geocode',
+        'Weather': 'source/server/connectors/weather',
+        'Logging': 'source/server/connectors/logging',
+        'Routing': 'source/server/connectors/routing',
+        'Express': 'source/server/connectors/express',
+        'Options': 'source/server/options',
+        'WebpackConfig': 'webpack.config.babel',
+        'MatchesData': 'source/server/datastore/tournament'
+      }
+    },
 
     module: {
       rules: [
         {
           loader: 'babel-loader',
           test: /\.js$/,
-          exclude: /(build|documentation|node_modules)/
+          exclude: /(build|node_modules)/
         }
       ]
     },

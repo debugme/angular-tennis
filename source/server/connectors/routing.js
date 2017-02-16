@@ -2,7 +2,7 @@ import express from 'express'
 import path from 'path'
 import webpack from 'webpack'
 import webpackMiddleware from 'webpack-dev-middleware'
-import webpackConfig from '../../../webpack.config.babel.js'
+import webpackConfig from 'WebpackConfig'
 
 function connectRouting({server, mode}) {
 

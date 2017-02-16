@@ -1,6 +1,6 @@
 import { middleware } from 'apicache'
 import moment from 'moment'
-import matches from '../datastore/tournament.json'
+import matches from 'MatchesData'
 
 function matchesHelper(config, request, response, next) {
 
