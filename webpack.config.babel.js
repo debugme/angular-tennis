@@ -3,6 +3,9 @@ import fs from 'fs'
 import webpack from 'webpack'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+import dotenv from 'dotenv'
+
+dotenv.load()
 
 const getConfiguration = environment => {
 
