@@ -34,7 +34,8 @@ const getConfiguration = environment => {
         'AvatarImage': 'source/client/images/avatar',
         'GeneralStyle': 'source/client/styles/general',
         'LayoutStyle': 'source/client/styles/layout',
-        'ResponsiveStyle': 'source/client/styles/responsive'
+        'ResponsiveStyle': 'source/client/styles/responsive',
+        'FlexLayoutMixin': 'source/client/styles/mixins/flex-layout'
       }
     },
 

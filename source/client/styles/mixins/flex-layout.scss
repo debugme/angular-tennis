@@ -1,0 +1,6 @@
+@mixin flex-layout($padding: 0, $margin: 0) {
+  display: flex;
+  box-sizing: border-box;
+  padding: $padding;
+  margin: $margin;
+}
