@@ -13,7 +13,7 @@ This application was written to showcase how to build a responsive and performan
 * The clientside assets (Javascript, CSS, images, etc) are named in a manner to facilitate cache-busting in the browser
 
 ## Development
-* Source maps are generated to reconcile generated CSS back to the source SASS files they are derived from
+* Source maps are generated to reconcile generated JS/CSS back to the JS/SASS files they are derived from
 
 # Install Steps
 * Install [Node 7.5.0](https://nodejs.org/en/)
@@ -22,7 +22,7 @@ This application was written to showcase how to build a responsive and performan
 
 # Build Steps
 
-   Open a Terminal to your folder
+   Open up a Terminal command line session
    ```
    $
    ```
@@ -32,12 +32,12 @@ This application was written to showcase how to build a responsive and performan
    $ git clone https://github.com/debugme/angular-tennis.git
    ```
 
-   Navigate to downloaded folder
+   Navigate into the downloaded folder
    ```
    $ cd angular-tennis
    ```
 
-   Install project dependencies
+   Install the project dependencies
    ```
    $ npm run reincarnate
    ```
@@ -68,6 +68,6 @@ The application endpoints are exposed to help with testing
 
 * [Angular](https://angularjs.org) - used to build the entire web application
 * [Webpack](https://webpack.js.org) - used to concatenate code and assets into bundles
-* [Sass](http://sass-lang.co) - used to make styling simpler to understand and maintain
+* [Sass](http://sass-lang.com) - used to make styling simpler to understand and maintain
 * [Node](https://nodejs.org/en/) - used to host the application server
 * [Express](http://expressjs.com) - used to serve the web application to the browser
