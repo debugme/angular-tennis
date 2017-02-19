@@ -38,6 +38,16 @@ body, header, footer, main, .container  {
   &::-webkit-scrollbar {
     display: none;
   }
+  &-error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: auto;
+    &-card {
+      margin: 1em;
+      padding: 1em;
+    }
+  }
   &-table {
     margin: 2em 1em 2em 1em;
     padding: 0.5em 2em;

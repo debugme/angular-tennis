@@ -35,7 +35,9 @@ const getConfiguration = environment => {
         'GeneralStyle': 'source/client/styles/general',
         'LayoutStyle': 'source/client/styles/layout',
         'ResponsiveStyle': 'source/client/styles/responsive',
-        'FlexLayoutMixin': 'source/client/styles/mixins/flex-layout'
+        'VariablesPartial': 'source/client/styles/partials/_variables',
+        'FlexLayoutMixin': 'source/client/styles/mixins/flex-layout',
+        'CardLayoutMixin': 'source/client/styles/mixins/card-layout'
       }
     },
 

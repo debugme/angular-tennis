@@ -4,7 +4,11 @@ const appContent = function () {
     template: `
       <main class="content" data-ng-init="init()">
 
-        <div class="content-stack">
+        <div class="content-error" ng-if="error">
+          <span class="content-error-card">{{error}}</span>
+        </div>
+
+        <div class="content-stack" ng-if="data">
           <div class="content-stack-column">
             <div ng-repeat="row in data.rows track by ('row-micro-' + $index)" class="content-stack-column-card">
               <span ng-repeat="value in row track by ('value-micro-' + $index)">
@@ -27,7 +31,7 @@ const appContent = function () {
           </div>
         </div>
 
-        <div class="content-table">
+        <div class="content-table" ng-if="data">
           <div ng-repeat="column in data.cols track by ('column-' + $index)" class="content-table-column {{data.headings[$index].type}}">
             <div class="content-table-column-name">
               {{data.headings[$index].name}}
@@ -46,7 +50,7 @@ const appContent = function () {
         const onSuccess = data =>
           $scope.data = data.data
         const onFailure = data =>
-          $scope.data = `Error: ${data.data}`
+          $scope.error = data.data.error
         $http.get(endpoint)
           .then(onSuccess)
           .catch(onFailure)
