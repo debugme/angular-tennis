@@ -17,17 +17,17 @@ const makeRecord = (matches, geocode, weather) =>
 const formatData = rawData => {
 
   const headings = [
-    { name: 'Tournament', type: 'micro'},
-    { name: 'Status', type: 'medium'},
-    { name: 'StartDate', type: 'micro'},
-    { name: 'EndDate', type: 'large'},
-    { name: 'Surface', type: 'small'},
-    { name: 'Environment', type: 'small'},
-    { name: 'City', type: 'micro'},
-    { name: 'Country', type: 'micro'},
-    { name: 'Weather', type: 'small'},
-    { name: 'Temperature', type: 'small'},
-    { name: 'Pressure', type: 'large'}
+    { name: 'Tournament', type: 'micro' },
+    { name: 'Status', type: 'medium' },
+    { name: 'StartDate', type: 'micro' },
+    { name: 'EndDate', type: 'large' },
+    { name: 'Surface', type: 'small' },
+    { name: 'Environment', type: 'small' },
+    { name: 'City', type: 'micro' },
+    { name: 'Country', type: 'micro' },
+    { name: 'Weather', type: 'small' },
+    { name: 'Temperature', type: 'small' },
+    { name: 'Pressure', type: 'large' }
   ]
 
   const paths = [
@@ -47,7 +47,7 @@ const formatData = rawData => {
   const rows = rawData.map(data => paths.map(path => get(data, path, '')))
   const cols = rows[0].map((column, index) => rows.map(row => row[index]))
 
-  const table = { headings, rows, cols}
+  const table = { headings, rows, cols }
   return table
 }
 
@@ -62,12 +62,12 @@ const contentHelper = (request, response, next) =>
             makeRecord(matchesData, geocodeData.data, weatherData.data)
           ))
       ))
-        .then((rawData) =>
-          response.status(200).json(formatData(rawData))
-        )
-        .catch(error =>
-          response.status(error.response.status).send({ error: 'Hmm. Could not retrieve remote data. Perhaps your credentials are wrong?'})
-        )
+      .then((rawData) =>
+        response.status(200).json(formatData(rawData))
+      )
+      .catch(error =>
+        response.status(error.response.status).send({ error: 'Hmm. Could not retrieve remote data. Perhaps your credentials are wrong?' })
+      )
     })
 
 const connectContent = ({server, mode}) =>

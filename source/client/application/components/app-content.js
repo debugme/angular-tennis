@@ -4,15 +4,15 @@ const appContent = function () {
     template: `
       <main class="content" data-ng-init="init()">
 
-        <div class="content-error" ng-if="error">
+        <div class="content-error" data-ng-if="error">
           <span class="content-error-card">{{error}}</span>
         </div>
 
-        <div class="content-stack" ng-if="data">
+        <div class="content-stack" data-ng-if="data">
           <div class="content-stack-column">
-            <div ng-repeat="row in data.rows track by ('row-micro-' + $index)" class="content-stack-column-card">
-              <span ng-repeat="value in row track by ('value-micro-' + $index)">
-                <div ng-if="data.headings[$index].type === 'micro'">
+            <div data-ng-repeat="row in data.rows track by ('row-micro-' + $index)" class="content-stack-column-card">
+              <span data-ng-repeat="value in row track by ('value-micro-' + $index)">
+                <div data-ng-if="data.headings[$index].type === 'micro'">
                   <span class="content-stack-column-card-label">{{data.headings[$index].name}}:</span>
                   <span class="content-stack-column-card-value">{{value}}</span>
                 </div>
@@ -20,9 +20,9 @@ const appContent = function () {
             </div>
           </div>
           <div class="content-stack-column small">
-            <div ng-repeat="row in data.rows track by ('row-small-' + $index)" class="content-stack-column-card">
-              <span ng-repeat="value in row track by ('value-small-' + $index)">
-                <div ng-if="data.headings[$index].type === 'small'">
+            <div data-ng-repeat="row in data.rows track by ('row-small-' + $index)" class="content-stack-column-card">
+              <span data-ng-repeat="value in row track by ('value-small-' + $index)">
+                <div data-ng-if="data.headings[$index].type === 'small'">
                   <span class="content-stack-column-card-label">{{data.headings[$index].name}}:</span>
                   <span class="content-stack-column-card-value">{{value}}</span>
                 </div>
@@ -31,12 +31,12 @@ const appContent = function () {
           </div>
         </div>
 
-        <div class="content-table" ng-if="data">
-          <div ng-repeat="column in data.cols track by ('column-' + $index)" class="content-table-column {{data.headings[$index].type}}">
+        <div class="content-table" data-ng-if="data">
+          <div data-ng-repeat="column in data.cols track by ('column-' + $index)" class="content-table-column {{data.headings[$index].type}}">
             <div class="content-table-column-name">
               {{data.headings[$index].name}}
             </div>
-            <div ng-repeat="value in column track by ('value-' + $index)" class="content-table-column-cell">
+            <div data-ng-repeat="value in column track by ('value-' + $index)" class="content-table-column-cell">
               {{value}}
             </div>
           </div>
