@@ -1,12 +1,3 @@
 {
-  "presets": ["es2015", "es2016", "stage-0"],
-  "env": {
-    "production": {
-      "plugins": [
-        ["babel-plugin-webpack-alias", {
-          "config": "./webpack.config.babel.js"
-        }]
-      ]
-    }
-  }
+  "presets": ["es2015", "es2016", "stage-0"]
 }
