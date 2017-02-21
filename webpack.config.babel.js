@@ -1,6 +1,7 @@
 import path from 'path'
 import fs from 'fs'
 import webpack from 'webpack'
+import nodeExternals from 'webpack-node-externals'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import dotenv from 'dotenv'
@@ -80,15 +81,6 @@ const getConfiguration = environment => {
     ]
   }
 
-  var nodeModules = {};
-  fs.readdirSync('node_modules')
-    .filter(function (x) {
-      return ['.bin'].indexOf(x) === -1;
-    })
-    .forEach(function (mod) {
-      nodeModules[mod] = 'commonjs ' + mod;
-    });
-
   const serverConfiguration = {
 
     entry: {
@@ -130,7 +122,7 @@ const getConfiguration = environment => {
       filename: '[name].js',
     },
 
-    externals: nodeModules
+    externals: nodeExternals()
   }
 
   return [clientConfiguration, serverConfiguration]
