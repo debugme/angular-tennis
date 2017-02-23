@@ -7,8 +7,8 @@
     "node": "7.5.0"
   },
   "scripts": {
-    "reincarnate": "rm -rf build node_modules; npm install",
-    "production": "rm -rf build; webpack -p --env.production; node build/server/server.js"
+    "reincarnate": "rimraf build node_modules; npm install",
+    "production": "rimraf build; webpack -p --env.production; node build/server/server.js"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
     "html-webpack-plugin": "^2.26.0",
     "image-webpack-loader": "^3.2.0",
     "node-sass": "^4.3.0",
+    "rimraf": "^2.6.0",
     "sass-loader": "^4.1.1",
     "url-loader": "^0.5.7",
     "webpack": "^2.2.0",
