@@ -2,7 +2,7 @@ import { middleware } from 'apicache'
 import moment from 'moment'
 import matches from 'MatchesData'
 
-function matchesHelper(config, request, response, next) {
+const matchesHelper = (config, request, response, next) => {
 
   const { expire, notify } = config
   const expiry = moment().add(...expire).format('YYYY:MM:DD-HH:mm:ss (x)')
@@ -12,7 +12,7 @@ function matchesHelper(config, request, response, next) {
   response.json({ matches, expiry })
 }
 
-function connectMatches({server, mode}) {
+const connectMatches = ({server, mode}) => {
 
   const matchesExpire = (mode === 'production') ? [1, 'day'] : [20, 'seconds']
   const matchesNotify = (mode === 'production') ? () => { } : () => console.log(`${moment().format('YYYY:MM:DD-HH:mm:ss - ')}Calling Matches API`)

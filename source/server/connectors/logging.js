@@ -3,7 +3,7 @@ import moment from 'moment'
 import morgan from 'morgan'
 import path from 'path'
 
-function connectLogging({server, mode}) {
+const connectLogging = ({server, mode}) => {
 
   var logFolder = path.resolve('./logs')
   fs.existsSync(logFolder) || fs.mkdirSync(logFolder)

@@ -2,7 +2,7 @@ import axios from 'axios'
 import { middleware } from 'apicache'
 import moment from 'moment'
 
-function weatherHelper(config, request, response, next) {
+const weatherHelper = (config, request, response, next) => {
 
   const { apiKey, expire, notify } = config
   const { country, city, units } = request.params
@@ -22,7 +22,7 @@ function weatherHelper(config, request, response, next) {
     })
 }
 
-function connectWeather({ server, mode, weatherApiKey }) {
+const connectWeather = ({ server, mode, weatherApiKey }) => {
 
   const weatherExpire = (mode === 'production') ? [1, 'hour'] : [20, 'seconds']
   const weatherNotify = (mode === 'production') ? () => { } : () => console.log(`${moment().format('YYYY:MM:DD-HH:mm:ss - ')}Calling Weather API`)

@@ -2,7 +2,7 @@ import axios from 'axios'
 import { middleware } from 'apicache'
 import moment from 'moment'
 
-function geocodeHelper(config, request, response, next) {
+const geocodeHelper = (config, request, response, next) => {
 
   const { apiKey, expire, notify } = config
   const { country } = request.params
@@ -22,7 +22,7 @@ function geocodeHelper(config, request, response, next) {
     })
 }
 
-function connectGeocode({server, mode, geocodeApiKey}) {
+const connectGeocode = ({server, mode, geocodeApiKey}) => {
 
   const geocodeExpire = (mode === 'production') ? [1, 'week'] : [20, 'seconds']
   const geocodeNotify = (mode === 'production') ? () => { } : () => console.log(`${moment().format('YYYY:MM:DD-HH:mm:ss - ')}Calling Geocode API`)

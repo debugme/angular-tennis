@@ -1,4 +1,4 @@
-const appContent = function () {
+const appContent = () => {
   return {
     replace: true,
     template: `
@@ -44,7 +44,7 @@ const appContent = function () {
 
       </main>
     `,
-    controller: ['$scope', '$http', function ($scope, $http) {
+    controller: ['$scope', '$http', ($scope, $http) => {
       $scope.init = () => {
         const endpoint = '/api/content'
         const onSuccess = data =>

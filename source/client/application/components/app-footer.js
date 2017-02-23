@@ -1,4 +1,4 @@
-const appFooter = function () {
+const appFooter = () => {
   return {
     replace: true,
     template: `

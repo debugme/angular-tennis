@@ -1,6 +1,6 @@
 import avatar from 'AvatarImage'
 
-const appHeader = function () {
+const appHeader = () => {
   return {
     replace: true,
     template: `
