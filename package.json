@@ -1,7 +1,7 @@
 {
   "name": "angular-tennis",
   "version": "1.0.0",
-  "description": "Angular + SASS + Express + Webpack",
+  "description": "Angular + SASS + Express + Node + Webpack",
   "main": "server.js",
   "engines": {
     "node": "7.6.0"
