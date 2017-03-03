@@ -23,7 +23,7 @@ const getConfiguration = environment => {
       pathinfo: true
     },
 
-    devtool: environment.production ? 'source-map' : 'eval',
+    devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'eval',
 
     resolve: {
       modules: ['node_modules', __dirname],
@@ -77,6 +77,7 @@ const getConfiguration = environment => {
       new webpack.optimize.CommonsChunkPlugin({ names: ['vendor', 'manifest'] }),
       new ExtractTextPlugin('bundle.[contenthash].css'),
       new HtmlWebpackPlugin({ template: 'source/client/application/index.html' }),
+      new webpack.DefinePlugin({ 'process.env.PORT': JSON.stringify(process.env.PORT) }),
       new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV) })
     ]
   }

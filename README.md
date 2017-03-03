@@ -39,7 +39,7 @@ This application was written to showcase how to build a responsive and performan
 
    Install the project dependencies
    ```
-   $ npm run reincarnate
+   $ npm install
    ```
 
    Add your Open Weather API key into the [.env](.env) file
@@ -50,7 +50,7 @@ This application was written to showcase how to build a responsive and performan
 
    Start up the server
    ```
-   $ npm run production
+   $ npm start
    ```
    Open your browser at
    ```
