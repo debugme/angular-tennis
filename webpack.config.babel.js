@@ -64,9 +64,6 @@ const getConfiguration = environment => {
               loader: 'url-loader', options: {
                 limit: 4096
               }
-            },
-            {
-              loader: 'image-webpack-loader'
             }
           ]
         }
