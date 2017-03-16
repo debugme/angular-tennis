@@ -7,7 +7,7 @@
     "node": "7.6.0"
   },
   "scripts": {
-    "postinstall": "webpack -p",
+    "postinstall": "webpack",
     "start": "node build/server/server.js"
   },
   "repository": {

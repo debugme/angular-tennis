@@ -13,7 +13,7 @@ const getConfiguration = environment => {
   const clientConfiguration = {
 
     entry: {
-      bundle: 'source/client/application/components/application',
+      bundle: 'source/client/application/components/Application',
       vendor: ['angular']
     },
 
