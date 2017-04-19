@@ -2,9 +2,9 @@
   "name": "angular-tennis",
   "version": "1.0.0",
   "description": "Angular + SASS + Express + Node + Webpack",
-  "main": "server.js",
+  "main": "build/server/server.js",
   "engines": {
-    "node": "7.6.0"
+    "node": "7.8.0"
   },
   "scripts": {
     "postinstall": "webpack",

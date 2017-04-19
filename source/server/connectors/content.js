@@ -45,6 +45,10 @@ const formatData = rawData => {
   ]
 
   const rows = rawData.map(data => paths.map(path => get(data, path, '')))
+
+  // console.log(JSON.stringify(rows, undefined, 2))
+
+
   const cols = rows[0].map((column, index) => rows.map(row => row[index]))
 
   const table = { headings, rows, cols }
