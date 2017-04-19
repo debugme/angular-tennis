@@ -1,5 +1,5 @@
 # Demo
-https://ng-tennis.herokuapp.com/
+https://angular-tennis.now.sh/
 
 # Introduction
 This application was written to showcase how to build a responsive and performant frontend that is powered by a modular and extensible backend.
