@@ -157,7 +157,7 @@
 	},
 	{
 		"city": "Knoxville",
-		"location": "U.S.A.",
+		"location": "US",
 		"endDate": "2016-11-13",
 		"surface": "Hard",
 		"identifier": 1389,
@@ -482,7 +482,7 @@
 	},
 	{
 		"city": "Charlottesville",
-		"location": "U.S.A.",
+		"location": "US",
 		"endDate": "2016-11-06",
 		"surface": "Hard",
 		"identifier": 8,
